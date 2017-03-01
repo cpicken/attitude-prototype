@@ -27,13 +27,18 @@
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			document.body.appendChild(renderer.domElement);
 			var geometry = new THREE.BoxGeometry(1, 1, 1);
-			var material = new THREE.MeshBasicMaterial({color:0x00ff00});
-			var cube = new THREE.Mesh(geometry, material);
-			scene.add(cube);
-			camera.position.z = 5;			
+			var material = new THREE.MeshBasicMaterial({color:0x00ff00, wireframe: true});
+			var mesh = null;
+			var loader = new THREE.JSONLoader();
+			loader.load("rocket_model2.js", function(geometry) {
+				mesh = new THREE.Mesh(geometry);
+				scene.add(mesh);
+			});
+			camera.position.z = 15;			
 			var render = function() {
 				requestAnimationFrame(render);
-				cube.rotation.y += 0.03;
+				mesh.rotation.y += 0.01;
+				mesh.rotation.x += 0.02;
 
 				renderer.render(scene, camera);
 			}
