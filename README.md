@@ -21,7 +21,7 @@ Link to three.js website: https://threejs.org/
 ####To shutdown the server if running the "python -m SimpleHTTPServer" command
 1. From the terminal running the server, press "ctrl + z"
 2. Enter "ps -fA | grep python"
-3. Enter "kill <proc_id>" where <proc_id> is the id of the process running the python -m SimpleHTTPServer command
+3. Enter "kill [proc_id]" where [proc_id] is the id of the process running the python -m SimpleHTTPServer command
 4. Enter "fg"
 
 This probably isn't the best/cleanest way to close the server, but it works.
